@@ -8,6 +8,14 @@ from keras.models import load_model
 from keras import backend as K
 from flask import current_app, url_for
 from PIL import Image
+from rq import Queue
+from worker import conn
+
+q = Queue(connection=conn)
+
+def get_model_response(img):
+    result = q.enqueue(prepare_img, img)
+    return result
 
 def reload_model():
     global model
