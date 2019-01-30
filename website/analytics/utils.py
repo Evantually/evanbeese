@@ -38,9 +38,12 @@ def prepare_img(img):
     global graph
     with graph.as_default():
         preds = model.predict(prepared_img)
+        print(f'preds: {preds}'')
         results = decode_predictions(preds)
+        print(f'results: {results}')
         data['predictions'] = []
         for (imagenetID, label, prob) in results[0]:
             r = {"label": label, "probability": round(100*float(prob),2)}
             data['predictions'].append(r)
+        print(f'data: {data}')
     return data, picture_fname
