@@ -37,6 +37,7 @@ def prepare_img(img):
     print(f'prepared_img: {prepared_img}')
     
     global graph
+    global model
     print(f'graph: {graph}')
     with graph.as_default():
         preds = model.predict(prepared_img)
