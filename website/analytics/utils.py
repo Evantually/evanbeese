@@ -14,8 +14,10 @@ from worker import conn
 q = Queue(connection=conn)
 
 def get_model_response(img):
-    result = q.enqueue_call(func=prepare_img, args=([img]))
-    return result
+    result = q.enqueue_call(func=prepare_img, args=([img]), result_ttl=600)
+    while result.result is None:
+        pass
+    return result.result
 
 def reload_model():
     global model
