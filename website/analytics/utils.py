@@ -14,6 +14,7 @@ from worker import conn
 q = Queue(connection=conn)
 
 def get_model_response(img):
+    print(img)
     result = q.enqueue_call(func=prepare_img, args=([img]), result_ttl=600)
     while result.result is None:
         pass
