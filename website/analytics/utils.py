@@ -9,8 +9,6 @@ from flask import current_app
 from PIL import Image
 
 def load_model():
-    global model
-    global graph
     model = Xception(weights="imagenet")
     graph = K.get_session().graph
 
@@ -35,9 +33,7 @@ def prepare_img(img):
     prepared_img = np.expand_dims(prepared_img, axis=0)
     prepared_img = preprocess_input(prepared_img)
     print(f'prepared_img: {prepared_img}')
-    
-    global graph
-    global model
+
     print(f'graph: {graph}')
     with graph.as_default():
         preds = model.predict(prepared_img, verbose=1)

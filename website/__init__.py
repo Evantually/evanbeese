@@ -7,6 +7,9 @@ from website.analytics.utils import load_model
 
 db = PyMongo()
 
+global model
+global graph
+
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(Config)
