@@ -17,9 +17,13 @@ def load_model():
 def prepare_img(img):
     data = {}
     random_hex = secrets.token_hex(8)
+    print(f'random_hex: {random_hex}')
     _, f_ext = os.path.splitext(img.filename)
+    print(f'f_ext: {f_ext}')
     picture_fname = f'{random_hex}{f_ext}'
+    print(f'picture_fname: {picture_fname}')
     picture_path = os.path.join(current_app.root_path, 'static/uploads', picture_fname)
+    print(f'picture_path: {picture_path}')
     output_size = (299, 299)
     i = Image.open(img)
     i.thumbnail(output_size)
