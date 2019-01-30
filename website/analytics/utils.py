@@ -4,14 +4,16 @@ import numpy as np
 import keras
 from keras.preprocessing.image import img_to_array
 from keras.applications.xception import (Xception, preprocess_input, decode_predictions)
+from keras.models import load_model
 from keras import backend as K
-from flask import current_app
+from flask import current_app, url_for
 from PIL import Image
 
-def load_model():
+def reload_model():
     global model
     global graph
-    model = load_model(url_for('static', filename='models/xception_model.h5'))
+    # print(os.path.join(current_app.root_path, 'static','models','xception_model.h5'))
+    model = load_model(os.path.join('website','static','models','xception_model.h5'))
     graph = K.get_session().graph
 
 def prepare_img(img):

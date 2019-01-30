@@ -3,7 +3,7 @@ from flask_pymongo import PyMongo
 from website.config import Config
 from flask_track_usage import TrackUsage
 from flask_track_usage.storage.mongo import MongoStorage
-from website.analytics.utils import load_model
+from website.analytics.utils import reload_model
 
 db = PyMongo()
 
@@ -27,6 +27,6 @@ def create_app(config_class=Config):
     model = None
     graph = None
 
-    load_model()
+    reload_model()
     
     return app
