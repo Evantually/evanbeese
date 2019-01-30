@@ -40,7 +40,7 @@ def prepare_img(img):
     global model
     print(f'graph: {graph}')
     with graph.as_default():
-        preds = model.predict(prepared_img)
+        preds = model.predict(prepared_img, verbose=1)
         print(f'preds: {preds}')
         results = decode_predictions(preds)
         print(f'results: {results}')
