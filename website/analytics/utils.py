@@ -14,7 +14,7 @@ from worker import conn
 q = Queue(connection=conn)
 
 def get_model_response(img):
-    result = q.enqueue(func=prepare_img, args=(img))
+    result = q.enqueue_call(func=prepare_img, args=(img))
     return result
 
 def reload_model():
