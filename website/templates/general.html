@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid rounded bg-success">
+            <div class="row ml-3">
+                <div class="card m-1" style="width: 18rem;">
+                    <img height="200px" src="{{ url_for('static', filename='img/chromespongegar.png') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Chrome Extension - Spongegnar Speak</h5>
+                        <p class="card-text">An extension for the Chrome browser which plays on the popular Spongegar meme of randomizing capitalization in a text string.</p>
+                        <a href="https://chrome.google.com/webstore/detail/spongegnar-speak/amidnjlidlhkpommaicpgefkmmpddlkm" class="btn btn-success">Visit Chrome extension page</a>
+                    </div>
+                </div>
+                <div class="card m-1" style="width: 18rem;">
+                    <img height="200px" src="{{ url_for('static', filename='img/firefoxspongegar.png') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Firefox Extension - Spongegnar Speak</h5>
+                        <p class="card-text">An extension for the Firefox browser which plays on the popular Spongegar meme of randomizing capitalization in a text string.</p>
+                        <a href="https://addons.mozilla.org/en-US/firefox/addon/spongegnar-speak/" class="btn btn-success">Visit Firefox extension page</a>
+                    </div>
+                </div>
+                <div class="card m-1" style="width: 18rem;">
+                    <img height="200px" src="{{ url_for('static', filename='img/512x512.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Android Application - gnaRiFy</h5>
+                        <p class="card-text">An application for Android devices that adds a custom keyboard with randomized capitalization as you type. Guaranteed fun for the whole family.</p>
+                        <a href="https://play.google.com/store/apps/details?id=comevantually.github.gnarify" class="btn btn-success">Visit Android application page</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

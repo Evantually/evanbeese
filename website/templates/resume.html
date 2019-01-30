@@ -1,0 +1,157 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+        <div class="jumbotron jumbotron-fluid rounded bg-success">
+            <div class="m-2">
+                <a href="https://www.linkedin.com/in/evanbeese/"><img class="bg-light" height="50px" src="{{ url_for('static', filename='img/linkedin.png') }}"></a>
+                <a href="https://github.com/Evantually"><img height="50px" src="{{ url_for('static', filename='img/github.png') }}"></a>
+                <a href="https://www.patreon.com/user?u=16784665"><img height="50px" src="{{ url_for('static', filename='img/patreon.png') }}"></a>
+            </div>
+            <a class="resume-link" href="{{ url_for('jobs.uofmn') }}">
+                <div class="row content-section">
+                    <div class="col-md-9">
+                        <h5 class="article-title">University of Minnesota</h5>
+                        <h3 class="article-content">Data Visualization and Data Analytics Teaching Assistant</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="article-title">Languages:</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="article-title">Technologies:</h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <ul class="text-success">
+                                    <li>Python</li>
+                                    <li>Javascript</li>
+                                    <li>SQL</li>
+                                    <li>R</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <ul class="text-success">
+                                    <li>VBA</li>
+                                    <li>CSS</li>
+                                    <li>HTML</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <ul class="text-success">
+                                    <li>Excel</li>
+                                    <li>Pandas</li>
+                                    <li>Matplotlib</li>
+                                    <li>Scikitlearn</li>
+                                    <li>Tensorflow</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <ul class="text-success">
+                                    <li>Tableau</li>
+                                    <li>PySpark</li>
+                                    <li>Hadoop</li>
+                                    <li>MapReduce</li>
+                                    <li>Keras</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <h5 class="text-dark">August 2018-Present</h5>
+                    </div>
+                </div>
+            </a>
+            <a class="resume-link" href="{{ url_for('jobs.wellsfargo') }}">
+                <div class="row content-section">
+                    <div class="col-md-9">
+                        <h5 class="article-title">Wells Fargo</h5>
+                        <h3 class="article-content">Operations Analyst</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="article-title">Languages:</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="article-title">Technologies:</h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <ul class="text-success">
+                                    <li>Python</li>
+                                    <li>Javascript</li>
+                                    <li>SQL</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <ul class="text-success">
+                                    <li>VBA</li>
+                                    <li>CSS</li>
+                                    <li>HTML</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <ul class="text-success">
+                                    <li>Excel</li>
+                                    <li>Pandas</li>
+                                    <li>Tensorflow</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <ul class="text-success">
+                                    <li>Matplotlib</li>
+                                    <li>Scikitlearn</li>
+                                    <li>Keras</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <h5 class="text-dark">June 2017-Present</h5>
+                    </div>
+                </div>
+            </a>
+            <a class="resume-link" href="{{ url_for('jobs.thrivent') }}">
+                <div class="row content-section">
+                    <div class="col-md-9">
+                        <h5 class="article-title">Thrivent Financial</h5>
+                        <h3 class="article-content">Para Actuary</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="article-title">Languages:</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="article-title">Technologies:</h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <ul class="text-success">
+                                    <li>SAS</li>
+                                    <li>SQL</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <ul class="text-success">
+                                    <li>VBA</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <ul class="text-success">
+                                    <li>Excel</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <ul class="text-success">
+                                    <li>SAS EG</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <h5 class="text-dark">September 2015-June 2016</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+{% endblock content %}

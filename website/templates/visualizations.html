@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+        <div class="jumbotron jumbotron-fluid rounded bg-success">
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="choropleth">
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock content %}

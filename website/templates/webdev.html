@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid rounded bg-success">
+            <div class="row">
+                <div class="col-md-6">
+                    <img class="ml-5 profile" src="{{ url_for('static', filename='img/flask.png') }}" alt="Profile Picture" width="400px">
+                </div>
+                <div class="col-md-6">
+                    <h5 class="text-dark m-2">
+                        This website was created with Flask as the main development tool. Nearly all functionality
+                        is coded in Python, with some of the visualizations being presented in Javascript. The login,
+                        registration, and user authentication is handled with helper Flask libraries to make the
+                        development process easier. The backend is a non-relational database hosted with MongoDB Atlas.
+                        All of the routes are constructed using Flask with the assistance of html templates. If you would
+                        like to <a href="{{ url_for('main.contact') }}">inquire about a web design project</a> this is my
+                        preferred architecture to work with.
+                    </h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <img class="ml-5 profile bg-light" src="{{ url_for('static', filename='img/react.png') }}" alt="Profile Picture" width="400px">
+                </div>
+                <div class="col-md-6">
+                    <h5 class="text-dark m-2">
+                        I have also developed websites with React, focusing on the MERN stack. An example of my
+                        work on a React site can be found on <a href="https://github.com/Evantually">my Github.</a> <a href="https://github.com/Evantually/bookworm-react">
+                        The frontend</a> is this repository. <a href="https://github.com/Evantually/bookworm-api">The backend</a> is this repository.
+                        Please let me know if you would like to <a href="{{ url_for('main.contact') }}">inquire about a web design project.</a>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

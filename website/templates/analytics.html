@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+        <div class="jumbotron bg-success">
+            <form method="POST" action="" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                <fieldset class='form-group'>
+                    <legend class="border-bottom mb-4">{{ title }}</legend>
+                    <div class='form-group'>
+                        {{ form.picture.label(class="form-control-label form-control-lg") }}
+                        {% if form.picture.errors %}
+                            {{ form.picture(class="form-control form-control-lg is-invalid")}}
+                            <div class="invalid-feedback">
+                                {% for error in form.picture.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.picture(class="form-control-lg") }}
+                        {% endif %}
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-primary btn-outline-info") }}
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
