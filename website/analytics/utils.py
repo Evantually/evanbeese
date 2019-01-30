@@ -8,16 +8,11 @@ from keras import backend as K
 from flask import current_app
 from PIL import Image
 
-model = None
-graph = None
-
 def load_model():
     global model
     global graph
     model = Xception(weights="imagenet")
     graph = K.get_session().graph
-
-load_model()
 
 def prepare_img(img):
     data = {}
