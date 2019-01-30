@@ -9,6 +9,7 @@ analytics_bp = Blueprint('analytics', __name__)
 def analytics():
     form = ClassificationForm()
     if form.validate_on_submit():
+        print(form)
         if form.picture.data:
             picture_file, picture_path = prepare_img(form.picture.data)
         # return jsonify(picture_file)

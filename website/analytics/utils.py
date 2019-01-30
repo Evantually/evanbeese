@@ -15,6 +15,7 @@ def load_model():
     graph = K.get_session().graph
 
 def prepare_img(img):
+    print(f'img: {img}')
     data = {}
     random_hex = secrets.token_hex(8)
     print(f'random_hex: {random_hex}')
