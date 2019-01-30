@@ -29,9 +29,11 @@ def prepare_img(img):
     i.thumbnail(output_size)
     i.save(picture_path)
     im = keras.preprocessing.image.load_img(picture_path, target_size=output_size, grayscale=False)
+    print(f'im: {im}')
     prepared_img = img_to_array(im)
     prepared_img = np.expand_dims(prepared_img, axis=0)
     prepared_img = preprocess_input(prepared_img)
+    print(f'prepared_img: {prepared_img}')
     
     global graph
     with graph.as_default():
