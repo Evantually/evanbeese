@@ -38,7 +38,7 @@ def prepare_img(img):
     global graph
     with graph.as_default():
         preds = model.predict(prepared_img)
-        print(f'preds: {preds}'')
+        print(f'preds: {preds}')
         results = decode_predictions(preds)
         print(f'results: {results}')
         data['predictions'] = []
