@@ -8,7 +8,7 @@ from keras.models import load_model
 from keras import backend as K
 from flask import current_app, url_for
 from PIL import Image
-from rq import Queue
+from rq import Queue, get_current_job
 from worker import conn
 
 q = Queue(connection=conn)
@@ -27,6 +27,10 @@ def reload_model():
 def prepare_img(img):
     global model
     global graph
+    job = get_current_job()
+    job.meta['progress'] = 1
+    job.save_meta()
+    print(f"job progress: {job.meta['progress']}")
     print(f'img: {img}')
     data = {}
     random_hex = secrets.token_hex(8)
