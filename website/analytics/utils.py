@@ -9,10 +9,14 @@ from flask import current_app
 from PIL import Image
 
 def load_model():
+    global model
+    global graph
     model = Xception(weights="imagenet")
     graph = K.get_session().graph
 
 def prepare_img(img):
+    global model
+    global graph
     print(f'img: {img}')
     data = {}
     random_hex = secrets.token_hex(8)
