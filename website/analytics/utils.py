@@ -11,7 +11,7 @@ from PIL import Image
 def load_model():
     global model
     global graph
-    model = Xception(weights="imagenet")
+    model = load_model(url_for('static', filename='models/xception_model.h5'))
     graph = K.get_session().graph
 
 def prepare_img(img):
