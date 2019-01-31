@@ -2,6 +2,7 @@ import os
 import secrets
 import numpy as np
 import keras
+import tensorflow as tf
 from keras.preprocessing.image import img_to_array
 from keras.applications.xception import (Xception, preprocess_input, decode_predictions)
 from keras.models import load_model
@@ -25,15 +26,12 @@ def reload_model():
     global graph
     # print(os.path.join(current_app.root_path, 'static','models','xception_model.h5'))
     model = load_model(os.path.join('website','static','models','xception_model.h5'))
-    graph = K.get_session().graph
+    graph = tf.get_default_graph()
+    # graph = K.get_session().graph
 
 def prepare_img(img):
     global model
     global graph
-    job = get_current_job()
-    job.meta['progress'] = 1
-    job.save_meta()
-    print(f"job progress: {job.meta['progress']}")
     print(f'img: {img}')
     data = {}
     random_hex = secrets.token_hex(8)
