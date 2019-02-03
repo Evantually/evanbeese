@@ -21,7 +21,7 @@ def analytics():
 
 @analytics_bp.route('/analytics/<jobID>', methods=['GET'])
 def analytics_response(jobID):
-    job = Job.fetch(jobID, conn=conn)
+    job = Job.fetch(jobID, connection=conn)
     if not job.is_finished:
         return 'Not yet', 202
     else:
