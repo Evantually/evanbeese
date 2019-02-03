@@ -31,10 +31,8 @@ def reload_model():
 def prepare_img(picture_path):
     global model
     global graph
-    job = Job.fetch(get_current_job(), connection=conn)
-    print(f'The current job is {job}.')
-    print(f'img: {img}')
     data = {}
+    output_size=(299,299)
     im = keras.preprocessing.image.load_img(picture_path, target_size=output_size, grayscale=False)
     print(f'im: {im}')
     prepared_img = img_to_array(im)
