@@ -28,25 +28,13 @@ def reload_model():
     graph = tf.get_default_graph()
     # graph = K.get_session().graph
 
-def prepare_img(img):
+def prepare_img(picture_path):
     global model
     global graph
     job = Job.fetch(get_current_job(), connection=conn)
     print(f'The current job is {job}.')
     print(f'img: {img}')
     data = {}
-    random_hex = secrets.token_hex(8)
-    print(f'random_hex: {random_hex}')
-    _, f_ext = os.path.splitext(img.filename)
-    print(f'f_ext: {f_ext}')
-    picture_fname = f'{random_hex}{f_ext}'
-    print(f'picture_fname: {picture_fname}')
-    picture_path = os.path.join(current_app.root_path, 'static/uploads', picture_fname)
-    print(f'picture_path: {picture_path}')
-    output_size = (299, 299)
-    i = Image.open(img)
-    i.thumbnail(output_size)
-    i.save(picture_path)
     im = keras.preprocessing.image.load_img(picture_path, target_size=output_size, grayscale=False)
     print(f'im: {im}')
     prepared_img = img_to_array(im)
