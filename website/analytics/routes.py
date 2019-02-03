@@ -2,6 +2,7 @@ from flask import render_template, request, Blueprint, url_for, jsonify, redirec
 from website import db
 from website.analytics.forms import ClassificationForm
 from website.analytics.utils import get_model_response, prepare_img
+from rq.job import Job
 
 analytics_bp = Blueprint('analytics', __name__)
 
