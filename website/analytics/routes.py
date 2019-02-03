@@ -5,6 +5,9 @@ from website.analytics.utils import get_model_response, prepare_img
 from rq.job import Job
 from worker import conn
 from rq import Queue
+import secrets
+from PIL import Image
+import os
 
 analytics_bp = Blueprint('analytics', __name__)
 
