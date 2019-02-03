@@ -17,7 +17,7 @@ def analytics():
         return render_template('results.html', results=picture_file, form=form, picture_path=picture_path)
     return render_template("analytics.html", title='Data Analytics', form=form)
 
-@analytics_bp.route('/analytics/<job_id>', methods=['GET'])
+@analytics_bp.route('/analytics/<jobID>', methods=['GET'])
 def analytics_response(jobID):
     job = Job.fetch(jobID)
     if not job.is_finished:
