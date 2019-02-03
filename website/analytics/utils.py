@@ -33,6 +33,7 @@ def reload_model():
 def prepare_img(picture_path):
     global model
     global graph
+    graph = tf.get_default_graph()
     data = {}
     output_size=(299,299)
     response = requests.get(picture_path)
