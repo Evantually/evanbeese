@@ -51,5 +51,6 @@ def analytics_response(jobID):
     return str(job.result)
 
 @analytics_bp.route('/analytics/<jobID>/done', methods=['GET'])
+def analytics_done(jobID):
     job = Job.fetch(jobID, connection=conn)
-    return job.result
+    return str(job.result)
