@@ -18,9 +18,7 @@ q = Queue(connection=conn)
 def get_model_response(img):
     print(f'get_model_response img: {img}')
     result = q.enqueue_call(func=prepare_img, args=([img]), result_ttl=600)
-    while result.result is None:
-        pass
-    return result.result
+    return result.key
 
 def reload_model():
     global model

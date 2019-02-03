@@ -11,7 +11,16 @@ def analytics():
     if form.validate_on_submit():
         print(form)
         if form.picture.data:
-            picture_file, picture_path = prepare_img(form.picture.data)
+            job_id = get_model_response(form.picture.data)
+            return redirect(f'/analytics/{job_id}')
         # return jsonify(picture_file)
         return render_template('results.html', results=picture_file, form=form, picture_path=picture_path)
     return render_template("analytics.html", title='Data Analytics', form=form)
+
+@analytics_bp.route('/analytics/<job_id>', methods=['GET'])
+def analytics_response(jobID):
+    job = Job.fetch(jobID)
+    if not job.is_finished:
+        return 'Not yet', 202
+    else:
+        return str(job.result)
