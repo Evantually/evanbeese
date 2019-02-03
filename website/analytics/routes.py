@@ -44,6 +44,7 @@ def analytics_response(jobID):
     print(f'{jobID}')
     job = Job.fetch(jobID, connection=conn)
     while not job.is_finished and not job.is_failed:
+        job = Job.fetch(jobID, connection=conn)
         return 'Currently processing image. Please wait!', 202
     if job.is_failed:
         return str('Sorry. We experienced an error when processing your image.')
