@@ -19,6 +19,7 @@ def analytics():
     if form.validate_on_submit():
         print(form)
         if form.picture.data:
+            img=form.picture.data
             random_hex = secrets.token_hex(8)
             _, f_ext = os.path.splitext(img.filename)
             picture_fname = f'{random_hex}{f_ext}'
