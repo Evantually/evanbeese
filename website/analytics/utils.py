@@ -10,6 +10,7 @@ from keras import backend as K
 from flask import current_app, url_for
 from PIL import Image
 from rq import Queue, get_current_job
+from rq.job import Job
 from worker import conn
 
 q = Queue(connection=conn)
@@ -32,6 +33,8 @@ def reload_model():
 def prepare_img(img):
     global model
     global graph
+    job = Job.fetch(get_current_job(), connection=conn)
+    print(f'The current job is {job}.')
     print(f'img: {img}')
     data = {}
     random_hex = secrets.token_hex(8)
