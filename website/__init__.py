@@ -3,12 +3,8 @@ from flask_pymongo import PyMongo
 from website.config import Config
 from flask_track_usage import TrackUsage
 from flask_track_usage.storage.mongo import MongoStorage
-from website.analytics.utils import reload_model
 
 db = PyMongo()
-
-global model
-global graph
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -23,10 +19,5 @@ def create_app(config_class=Config):
     app.register_blueprint(jobs)
     app.register_blueprint(analytics_bp)
     t.include_blueprint(main)
-
-    model = None
-    graph = None
-
-    reload_model()
     
     return app
