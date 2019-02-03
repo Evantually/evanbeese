@@ -23,7 +23,7 @@ def analytics():
             random_hex = secrets.token_hex(8)
             _, f_ext = os.path.splitext(img.filename)
             picture_fname = f'{random_hex}{f_ext}'
-            picture_path = os.path.join(url_for('static', filename=f'static/{picture_fname}'))
+            picture_path = os.path.join(url_for('static', filename=f'uploads/{picture_fname}'))
             output_size = (299, 299)
             i = Image.open(img)
             i.thumbnail(output_size)
