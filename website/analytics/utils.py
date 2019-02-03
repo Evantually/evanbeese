@@ -55,6 +55,6 @@ def prepare_img(picture_path):
             r = {"label": label, "probability": round(100*float(prob),2)}
             data['predictions'].append(r)
         print(f'data: {data}')
-    return data, picture_fname
+    return data, picture_path
 
 reload_model()
