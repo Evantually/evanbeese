@@ -3,6 +3,7 @@ from website import db
 from website.analytics.forms import ClassificationForm
 from website.analytics.utils import get_model_response, prepare_img
 from rq.job import Job
+from worker import conn
 
 analytics_bp = Blueprint('analytics', __name__)
 
@@ -20,7 +21,7 @@ def analytics():
 
 @analytics_bp.route('/analytics/<jobID>', methods=['GET'])
 def analytics_response(jobID):
-    job = Job.fetch(jobID)
+    job = Job.fetch(jobID, conn=conn)
     if not job.is_finished:
         return 'Not yet', 202
     else:
