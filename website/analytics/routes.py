@@ -49,3 +49,7 @@ def analytics_response(jobID):
     if job.is_failed:
         return str('Sorry. We experienced an error when processing your image.')
     return str(job.result)
+
+@analytics_bp.route('/analytics/<jobID>/done', methods=['GET'])
+    job = Job.fetch(jobID, connection=conn)
+    return job.result
