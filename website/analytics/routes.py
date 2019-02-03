@@ -4,6 +4,7 @@ from website.analytics.forms import ClassificationForm
 from website.analytics.utils import get_model_response, prepare_img
 from rq.job import Job
 from worker import conn
+from rq import Queue
 
 analytics_bp = Blueprint('analytics', __name__)
 
