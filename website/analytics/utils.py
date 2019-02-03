@@ -12,6 +12,8 @@ from PIL import Image
 from rq import Queue, get_current_job
 from rq.job import Job
 from worker import conn
+from io import BytesIO
+import requests
 
 q = Queue(connection=conn)
 
@@ -33,7 +35,9 @@ def prepare_img(picture_path):
     global graph
     data = {}
     output_size=(299,299)
-    im = keras.preprocessing.image.load_img(picture_path, target_size=output_size, grayscale=False)
+    response = requests.get(picture_path)
+    img = Image.open(BytesIO(response.content))
+    im = keras.preprocessing.image.load_img(img, target_size=output_size, grayscale=False)
     print(f'im: {im}')
     prepared_img = img_to_array(im)
     prepared_img = np.expand_dims(prepared_img, axis=0)
