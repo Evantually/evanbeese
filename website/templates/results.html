@@ -3,7 +3,7 @@
     <div class="container">
         <div class="jumbotron bg-success">
             <h1>Results</h1>
-            <img class="profile" src="{{ url_for('static', filename='uploads/' + picture_path) }}">
+            <img class="profile" src="{{ picture_path) }}">
             <h5 class="text-dark">The image that you submitted is most likely {{ results['predictions'][0]['label'] }} with the model being {{ results['predictions'][0]['probability'] }}% certain.</h5>
             <h5 class="text-dark">If this doesn't sound accurate, here are the next best guesses:</h5>
             {% for result in results['predictions'] %}
