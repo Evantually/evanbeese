@@ -41,14 +41,14 @@ def analytics():
 
 @analytics_bp.route('/analytics/<jobID>', methods=['GET'])
 def analytics_response(jobID):
-    print(f'{jobID}')
+    form = ClassificationForm()
     job = Job.fetch(jobID, connection=conn)
     while not job.is_finished and not job.is_failed:
         job = Job.fetch(jobID, connection=conn)
         return 'Currently processing image. Please wait!', 202
     if job.is_failed:
         return str('Sorry. We experienced an error when processing your image.')
-    return str(job.result)
+    return render_template('results.html', form=form, results=job.result[0], picture_path=job.result[1])
 
 @analytics_bp.route('/analytics/<jobID>/done', methods=['GET'])
 def analytics_done(jobID):
