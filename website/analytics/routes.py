@@ -30,9 +30,17 @@ def analytics():
         return render_template('results.html', results=picture_file, form=form, picture_path=picture_path)
     return render_template("analytics.html", title='Data Analytics', form=form)
 
-@analytics_bp.route('/analytics/<jobID>', methods=['GET'])
+@analytics_bp.route('/analytics/<jobID>', methods=['GET', 'POST'])
 def analytics_response(jobID):
     form = ClassificationForm()
+    if form.validate_on_submit():
+        print(form)
+        if form.picture.data:
+            img=form.picture.data
+            upload_result = upload(img)
+            thumbnail_url1, options = cloudinary_url(upload_result['public_id'], format='jpg', crop='fill', width=299, height=299)
+            result = q.enqueue_call(func=prepare_img, args=([thumbnail_url1]), result_ttl=600)
+            return redirect(f'/analytics/{result.get_id()}')
     job = Job.fetch(jobID, connection=conn)
     while not job.is_finished and not job.is_failed:
         job = Job.fetch(jobID, connection=conn)
