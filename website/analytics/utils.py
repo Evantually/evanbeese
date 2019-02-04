@@ -18,19 +18,19 @@ from website import db
 
 q = Queue(connection=conn)
 
-def set_task_progress(progress):
-    job = get_current_job()
-    if job:
-        complete = False
-        job.meta['progress'] = progress
-        job.save_meta()
-        if progress >= 100:
-            complete = True
-        newProg = {'id': job.get_id(), 'progress': progress, 'complete': complete}
-        db.tasks.update_one({'id': job.get_id()}, {'$set': newProg}, upsert=False)
+# def set_task_progress(progress):
+#     job = get_current_job()
+#     if job:
+#         complete = False
+#         job.meta['progress'] = progress
+#         job.save_meta()
+#         if progress >= 100:
+#             complete = True
+#         newProg = {'id': job.get_id(), 'progress': progress, 'complete': complete}
+#         db.tasks.update_one({'id': job.get_id()}, {'$set': newProg}, upsert=False)
 
-def get_model_response(jobID):
-    return db.tasks.find_one({'id': jobID})
+# def get_model_response(jobID):
+#     return db.tasks.find_one({'id': jobID})
 
 def reload_model():
     global model

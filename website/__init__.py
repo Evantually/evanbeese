@@ -10,8 +10,8 @@ db = PyMongo()
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(Config)
-    app.redis = Redis.from_url(app.config['REDIS_URL'])
-    app.task_queue = rq.Queue(connection=app.redis)
+    # app.redis = Redis.from_url(app.config['REDIS_URL'])
+    # app.task_queue = rq.Queue(connection=app.redis)
     db.init_app(app)
     t = TrackUsage(app, [MongoStorage('PersonalWebsite', 'tracking', Config.MONGO_URI)])
 
