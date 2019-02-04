@@ -40,7 +40,7 @@ def analytics_response(jobID):
     if job.is_failed:
         return str('Sorry. We experienced an error when processing your image.')
     print(job.result[0]['predictions'])
-    return render_template('results.html', form=form, results=jsonify(job.result[0]), picture_path=jsonify(job.result[1]))
+    return render_template('results.html', form=form, results=job.result[0], picture_path=jsonify(job.result[1]))
 
 @analytics_bp.route('/analytics/<jobID>/done', methods=['GET'])
 def analytics_done(jobID):
