@@ -29,8 +29,8 @@ q = Queue(connection=conn)
 #         newProg = {'id': job.get_id(), 'progress': progress, 'complete': complete}
 #         db.tasks.update_one({'id': job.get_id()}, {'$set': newProg}, upsert=False)
 
-# def get_model_response(jobID):
-#     return db.tasks.find_one({'id': jobID})
+def get_model_response(jobID):
+    return db.tasks.find_one({'id': jobID})
 
 def reload_model():
     global model
